@@ -12,6 +12,8 @@
 		D86B14571F7D665400289847 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D86B14551F7D665400289847 /* Main.storyboard */; };
 		D86B14591F7D665400289847 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86B14581F7D665400289847 /* Assets.xcassets */; };
 		D86B145C1F7D665400289847 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D86B145A1F7D665400289847 /* LaunchScreen.storyboard */; };
+		D86B14651F7D668100289847 /* CollapsibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86B14641F7D668100289847 /* CollapsibleView.swift */; };
+		D881D15B1F7D6AAC0086CCB2 /* CollapsibleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D881D15A1F7D6AAB0086CCB2 /* CollapsibleView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		D86B14581F7D665400289847 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D86B145B1F7D665400289847 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D86B145D1F7D665400289847 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D86B14641F7D668100289847 /* CollapsibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleView.swift; sourceTree = "<group>"; };
+		D881D15A1F7D6AAB0086CCB2 /* CollapsibleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollapsibleView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		D86B14501F7D665400289847 /* Collapsible */ = {
 			isa = PBXGroup;
 			children = (
+				D86B14631F7D665F00289847 /* View */,
 				D86B14511F7D665400289847 /* AppDelegate.swift */,
 				D86B14531F7D665400289847 /* ViewController.swift */,
 				D86B14551F7D665400289847 /* Main.storyboard */,
@@ -62,6 +67,15 @@
 				D86B145D1F7D665400289847 /* Info.plist */,
 			);
 			path = Collapsible;
+			sourceTree = "<group>";
+		};
+		D86B14631F7D665F00289847 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D86B14641F7D668100289847 /* CollapsibleView.swift */,
+				D881D15A1F7D6AAB0086CCB2 /* CollapsibleView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D86B145C1F7D665400289847 /* LaunchScreen.storyboard in Resources */,
+				D881D15B1F7D6AAC0086CCB2 /* CollapsibleView.xib in Resources */,
 				D86B14591F7D665400289847 /* Assets.xcassets in Resources */,
 				D86B14571F7D665400289847 /* Main.storyboard in Resources */,
 			);
@@ -136,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D86B14651F7D668100289847 /* CollapsibleView.swift in Sources */,
 				D86B14541F7D665400289847 /* ViewController.swift in Sources */,
 				D86B14521F7D665400289847 /* AppDelegate.swift in Sources */,
 			);
