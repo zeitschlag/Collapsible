@@ -18,13 +18,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view, typically from a nib.
 
         collapsibleView.delegate = self
+        collapsibleView.updateView()
     }
 
     //MARK: - UITableViewDelegate
 
     //MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,10 +61,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func collapseButtonTapped(_ sender: Any) {
         // change Image, for example
-        print("Collapsed! State: \(self.collapsibleView.state)")
     }
-
-    
 
 }
 

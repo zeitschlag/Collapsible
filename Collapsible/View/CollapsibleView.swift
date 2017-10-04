@@ -20,9 +20,7 @@ enum CollapsibleViewState {
 }
 
 class CollapsibleView: UIView {
-    
-    @IBOutlet var view: UIView!
-    
+
     //MARK: - Header
     @IBOutlet weak var controlView: UIView!
     @IBOutlet weak var collapseButton: UIButton!
@@ -31,7 +29,6 @@ class CollapsibleView: UIView {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var contentHeightConstraint: NSLayoutConstraint!
     
-    var collapsedHeight = 42.0
     var animationDuration: TimeInterval = 0.2
     
     var state: CollapsibleViewState = .Collapsed
@@ -67,9 +64,11 @@ class CollapsibleView: UIView {
                 self.contentHeightConstraint.constant = 300
             }
         }
-        
-        UIView.animate(withDuration: self.animationDuration) {
-            self.superview?.layoutIfNeeded()
+
+        OperationQueue.main.addOperation {
+            UIView.animate(withDuration: self.animationDuration) {
+                self.superview?.layoutIfNeeded()
+            }
         }
     }
     
