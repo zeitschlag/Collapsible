@@ -8,7 +8,9 @@
 
 import UIKit
 
-protocol CollapsibleViewDelegate {
+@objc protocol CollapsibleViewDelegate {
+    @objc optional var collapsedContentHeight: CGFloat { get }
+    @objc optional var contentHeight: CGFloat { get }
     func collapseButtonTapped(_ sender: Any)
 }
 
@@ -26,7 +28,7 @@ class CollapsibleView: UIView {
     @IBOutlet weak var collapseButton: UIButton!
     
     //MARK: - Content
-    @IBOutlet weak var contentView: UIView! // This thing must conform to a protocol to set the height
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var contentHeightConstraint: NSLayoutConstraint!
     
     var collapsedHeight = 42.0
@@ -35,32 +37,6 @@ class CollapsibleView: UIView {
     var state: CollapsibleViewState = .Collapsed
     
     var delegate: CollapsibleViewDelegate?
-    
-    //MARK: - init
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
-        view = loadViewFromNib()
-        view.frame = bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addSubview(view)
-    }
-    
-    private func loadViewFromNib() -> UIView! {
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
-        return view
-    }
-
     
     @IBAction func collapseButtonTapped(_ sender: Any) {
         
@@ -79,9 +55,17 @@ class CollapsibleView: UIView {
         
         switch self.state {
         case .Collapsed:
-            self.contentHeightConstraint.constant = 0
+            if let contentHeight = self.delegate?.collapsedContentHeight {
+                self.contentHeightConstraint.constant = contentHeight
+            } else {
+                self.contentHeightConstraint.constant = 0
+            }
         case .Expaneded:
-            self.contentHeightConstraint.constant = 300
+            if let contentHeight = self.delegate?.contentHeight {
+                self.contentHeightConstraint.constant = contentHeight
+            } else {
+                self.contentHeightConstraint.constant = 300
+            }
         }
         
         UIView.animate(withDuration: self.animationDuration) {
